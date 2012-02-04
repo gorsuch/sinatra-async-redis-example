@@ -1,11 +1,18 @@
 require 'em-hiredis'
 require 'sinatra/async'
 
+STDOUT.sync = true
+
 class AsyncRedis < Sinatra::Base
   register Sinatra::Async
 
+  def connect!
+    puts "connecting to redis"
+    EM::Hiredis.connect
+  end
+
   def redis
-    @@redis ||= EM::Hiredis.connect
+    @@redis ||= connect!
   end
 
   aget('/') do
