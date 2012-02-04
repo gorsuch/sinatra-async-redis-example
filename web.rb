@@ -9,8 +9,9 @@ class AsyncRedis < Sinatra::Base
   end
 
   aget('/') do
-    redis.incr('test') do
-      redis.get('test') { |r| body r }
+    key = 'test'
+    redis.incr(key) do
+      redis.get(key) { |r| body r }
     end
   end
 end
