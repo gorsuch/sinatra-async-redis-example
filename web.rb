@@ -15,3 +15,5 @@ class AsyncRedis < Sinatra::Base
     end
   end
 end
+
+AsyncRedis.run!

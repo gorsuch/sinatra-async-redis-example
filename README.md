@@ -1,5 +1,5 @@
 Run:
 
 ```
-bundle exec rackup -I .
+bundle exec ruby web.rb 
 ```
